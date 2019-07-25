@@ -9,15 +9,18 @@ public class LevelCreator : MonoBehaviour
     public GameObject mainTile;
     public GameObject lastTile;
     public GameObject stairs;
-
+    public GameObject monster;
     public Vector3 StartPosition;
 
     public Vector3 lastPlatformPosition;
     private readonly System.Random random = new System.Random();
 
+
+    public GameObject spawnPoint;
+
     public float floor = GameRuller.spriteSize;
+
     
-  
     
 
     public void CreateLevel(int platformsCount)
@@ -64,11 +67,17 @@ public class LevelCreator : MonoBehaviour
                 platform.transform.position = currentPosition;
             }
             currentPosition.x += GameRuller.spriteSize;
-           
+            
 
         }
         lastPlatformPosition = currentPosition;
        
+    }
+
+
+    public void CreateMonster(GameObject spawnPoint)
+    {
+        spawnPoint = Instantiate(monster, transform);
     }
 
     public void Start()
