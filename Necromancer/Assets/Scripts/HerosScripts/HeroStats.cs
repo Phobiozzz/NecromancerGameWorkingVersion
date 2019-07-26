@@ -24,6 +24,20 @@ public class HeroStats : MonoBehaviour
 
     }
 
+
+    public float skulls;
+
+    public void OnTriggerEnter2D (Collider2D other)
+    {
+        Debug.Log(other.tag);
+        if (other.tag == "Drop")
+        {
+            skulls++;
+            Destroy(other.gameObject);
+        }
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +45,7 @@ public class HeroStats : MonoBehaviour
         Hp = 100f;
         Mp = 100f;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
