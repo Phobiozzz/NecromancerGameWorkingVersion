@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class CreateSpell : MonoBehaviour
 {
@@ -29,21 +30,9 @@ public class CreateSpell : MonoBehaviour
     {
         spellStartPosition = spellstart.position;
         
-        if (Input.GetButtonDown("Fire1"))
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
            spell = Instantiate(SpellBook[0], spellStartPosition, Quaternion.identity);
-          
-            
-           
-            if (player.GetComponent<CharacterMovement>().lookingRight == true)
-            {
-                spell.GetComponent<Rigidbody2D>().velocity = Vector2.right * spellSpeed;
-            }
-            else
-            {
-                spell.GetComponent<Rigidbody2D>().velocity = Vector2.left * spellSpeed;
-                spell.transform.GetComponent<SpriteRenderer>().flipX = true;
-            }
             
         }
         

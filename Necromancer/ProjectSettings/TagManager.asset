@@ -9,6 +9,7 @@ TagManager:
   - Monster
   - Text
   - Drop
+  - DeathZone
   layers:
   - Default
   - TransparentFX

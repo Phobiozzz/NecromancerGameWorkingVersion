@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class Drop : MonoBehaviour
 {
-    public GameObject dropItem;
-    public float dropSpeed;
 
-    public void DropItem(GameObject drop)
-    {
+    public GameObject[] PagePeaces;
+    public GameObject[] RunePeaces;
 
-        bool isDead = transform.GetComponentInParent<MonsterStats>().isDead;
-        if (isDead == true)
-        {
-            drop = Instantiate(dropItem, transform);
-            drop.GetComponent<Rigidbody2D>().velocity = Vector2.up * dropSpeed;
-        }
-    }
+    public GameObject[] otherDrop;
 
-    public void Update()
-    {
-        DropItem(dropItem);
-    }
+    public GameObject drop;
+
+
+
+   
+    
 
 }

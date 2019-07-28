@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterAI : MonoBehaviour
 {
-    public string name;
+    public string monsterName;
     public float speed;
     public float damage;
     public float attackSpeed;

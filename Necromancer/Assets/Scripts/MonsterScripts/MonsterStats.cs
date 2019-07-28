@@ -11,8 +11,9 @@ public class MonsterStats : MonoBehaviour
     public float monsterMp;
     public float damageTaken;
     public bool isDead;
-    public GameObject drop;
-
+    public GameObject[] drop;
+    private readonly System.Random random = new System.Random();
+   
     void Death()
     {
         
@@ -20,14 +21,21 @@ public class MonsterStats : MonoBehaviour
         {
             isDead = true;
             Debug.Log(isDead);
+            GameObject dropItem = drop[random.Next(0, drop.Length-1)];
+            Instantiate(dropItem, transform.position, dropItem.transform.rotation);
+
             Destroy(gameObject);
         }
+       
 
     }
 
-    public void OnDestroy()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(drop, transform.position, drop.transform.rotation);
+        if (collision.tag == "DeathZone")
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start is called before the first frame update

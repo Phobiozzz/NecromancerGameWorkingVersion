@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Move()
     {
-        directionX = Input.GetAxis("Horizontal") * characterMoveSpeed * Time.deltaTime;
+        directionX = CrossPlatformInputManager.GetAxis("Horizontal") * characterMoveSpeed * Time.deltaTime;
         
         transform.position = new Vector2(transform.position.x + directionX, transform.position.y);
 
@@ -59,7 +60,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             if (isGrounded == true)
             {
