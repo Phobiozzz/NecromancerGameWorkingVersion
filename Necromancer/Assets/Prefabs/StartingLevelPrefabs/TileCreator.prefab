@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5757903394429015715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5757903394429015712}
+  - component: {fileID: 5757903394429015713}
+  m_Layer: 0
+  m_Name: TileCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5757903394429015712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757903394429015715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -115.36897, y: 0.1713432, z: 104.22903}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5757903394429015713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757903394429015715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e01d200a93e42868c4f3b6392d6ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstTile: {fileID: 8647248534122541737, guid: 6797e54034de94682bebc551c1272a2c,
+    type: 3}
+  mainTile: {fileID: 3596267961951413078, guid: 4d49a9063a3b34de4a1240142ec71631,
+    type: 3}
+  lastTile: {fileID: 2220394763215587903, guid: 5559c323e69db4dfcaedb2ac9e2e3b29,
+    type: 3}
+  stairs: {fileID: 0}
+  monster: {fileID: 0}
+  StartPosition: {x: 0, y: 0, z: 0}
+  lastPlatformPosition: {x: 0, y: 0, z: 0}
+  spawnPoint: {fileID: 0}
+  floor: 0.32

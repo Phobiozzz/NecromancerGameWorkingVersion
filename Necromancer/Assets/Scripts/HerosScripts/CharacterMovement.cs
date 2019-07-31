@@ -27,15 +27,13 @@ public class CharacterMovement : MonoBehaviour
         if (directionX < 0)
         {
             lookingRight = false;
-            //transform.GetComponent<SpriteRenderer>().flipX = true;
             transform.rotation = Quaternion.Euler(0, 180, 0);
             
         }
         else if(directionX > 0)
         {
-            
+
             lookingRight = true;
-            //transform.GetComponent<SpriteRenderer>().flipX = false;
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
@@ -49,14 +47,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 	// Update is called once per frame
-	void FixedUpdate()
-    {
-        Move();
-       
-        isGrounded = Physics2D.OverlapCircle(groundChek.position, chekRadius, whatIsGround);
-       
-        
-    }
+	
 
     private void Jump()
     {
@@ -73,7 +64,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-
+        Move();
         Jump();
+        isGrounded = Physics2D.OverlapCircle(groundChek.position, chekRadius, whatIsGround);
     }
 }

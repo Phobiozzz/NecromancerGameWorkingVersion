@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PoisonArrow : MonoBehaviour
 {
+    
     public float damage = 3;
     public float speed = 2.5f;
 
@@ -25,12 +26,12 @@ public class PoisonArrow : MonoBehaviour
     {
         if (collision.gameObject.tag == "Monster")
         {
-
+            collision.gameObject.GetComponent<MonsterStats>().TakeDamage(damage);
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "Ground")
         {
-            Debug.Log("You Hited the ground");
+           
             Destroy(gameObject);
         }
         else

@@ -12,22 +12,64 @@ public class MonsterAI : MonoBehaviour
     public bool canAttack;
 
     public Transform target;
+    public Transform groundDetector;
+    public LayerMask layermask;
 
     float distance;
 
-    private void Follow()
+    public bool Stop()
     {
-
-        if (distance < 2 && distance > 0.3)
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        print("Started To GroundChek");
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetector.position, Vector2.down, 3.2f, layermask);
+        Debug.DrawRay(groundDetector.position, Vector2.down, Color.red, 3.2f);
+        if (groundInfo.collider == false)
+        {
+            print("There is no ground !!!!!");
+            return true;
+        }
+        print("There is a ground here!");
+        return false;
     }
 
+    private void Follow()
+    {
+        bool shouldIstop = false;
+        shouldIstop = Stop();
+        if (shouldIstop != true)
+        {
+            if (distance < 2 && distance > 0.3)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                
+            }
+        }
+        if (transform.position.x < target.position.x)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
 
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Minion")
+        {
+            target = collision.gameObject.GetComponent<Transform>();
+            target.GetComponent<RiseSkeleton>().TakeDamage(damage);
+
+        }
+       
+    }
     private void Attack()
     {
 
         if (attackCD < 0)
         {
+            attackCD = 0;
             canAttack =true;
         }
         if (distance < 0.4f && canAttack == true)
@@ -43,6 +85,7 @@ public class MonsterAI : MonoBehaviour
 
     }
 
+   
 
     private void Start()
     {
@@ -53,12 +96,21 @@ public class MonsterAI : MonoBehaviour
         attackSpeed = 3f;
     }
 
+   
     private void Update()
     {
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
 
-        distance = Vector2.Distance(transform.position, target.position);
+        distance =Mathf.Abs(Vector2.Distance(transform.position, target.position));
+        Stop();
         Follow();
         Attack();
         
+        
     }
+
+    
 }

@@ -29,11 +29,15 @@ public class CreateSpell : MonoBehaviour
     void Update()
     {
         spellStartPosition = spellstart.position;
-        
+
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
-           spell = Instantiate(SpellBook[0], spellStartPosition, Quaternion.identity);
-            
+            spell = Instantiate(SpellBook[0], spellStartPosition, Quaternion.identity);
+
+        }
+        else if (CrossPlatformInputManager.GetButtonDown("Fire2"))
+        {
+            spell = Instantiate(SpellBook[1], spellStartPosition, Quaternion.identity);
         }
         
        

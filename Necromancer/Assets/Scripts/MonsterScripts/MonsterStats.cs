@@ -20,7 +20,7 @@ public class MonsterStats : MonoBehaviour
         if (monsterHp <= 0)
         {
             isDead = true;
-            Debug.Log(isDead);
+           
             GameObject dropItem = drop[random.Next(0, drop.Length-1)];
             Instantiate(dropItem, transform.position, dropItem.transform.rotation);
 
@@ -47,17 +47,19 @@ public class MonsterStats : MonoBehaviour
        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+
+    public void TakeDamage(float dmg)
     {
-        
-        monsterHp -= collision.gameObject.GetComponent<PoisonArrow>().damage;
+        monsterHp -= dmg;
+        Debug.Log("TakenDamage  " + dmg);
+        Debug.Log("My Current Hp = " + monsterHp);
     }
-
-
   
     // Update is called once per frame
     void Update()
     {
         Death();
+       
     }
 }

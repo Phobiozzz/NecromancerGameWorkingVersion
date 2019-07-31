@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 8
   m_Name: SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 8647248534122541739}
   - component: {fileID: 8647248534122541736}
   - component: {fileID: 8647248534122541738}
-  - component: {fileID: 7925351676838472967}
   m_Layer: 8
   m_Name: Ground_Left
   m_TagString: Ground
@@ -139,19 +138,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.08299947}
   m_EdgeRadius: 0
---- !u!114 &7925351676838472967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8647248534122541737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85212a95004924433b88882a939cca52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tile: {fileID: 8647248534122541737}
-  spawnPoint: {fileID: 2224576718568609967}
-  positionX: 0
-  positionY: 0

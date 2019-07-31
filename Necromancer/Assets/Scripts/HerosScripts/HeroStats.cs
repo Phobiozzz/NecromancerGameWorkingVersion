@@ -28,7 +28,7 @@ public class HeroStats : MonoBehaviour
             Destroy(hero);
         }
         
-        Debug.Log("Youre dead");
+       
     }
 
 
@@ -38,7 +38,7 @@ public class HeroStats : MonoBehaviour
 
     public void OnTriggerEnter2D (Collider2D other)
     {
-        Debug.Log(other.tag);
+       
         if (other.tag == "Drop")
         {
             switch (other.name)

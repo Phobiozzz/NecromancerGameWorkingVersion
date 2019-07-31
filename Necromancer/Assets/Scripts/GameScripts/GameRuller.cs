@@ -8,6 +8,7 @@ public  class GameRuller : MonoBehaviour
     public GameObject hero;
     public GameObject deathmessage;
     public GameObject Gui;
+    public GameObject spellBook;
     public static bool paused;
 
     public void StopTheGame()
@@ -32,6 +33,8 @@ public  class GameRuller : MonoBehaviour
     {
         deathmessage.SetActive(false);
         Gui.SetActive(true);
+        spellBook.SetActive(false);
+
     }
 
     public void Update()

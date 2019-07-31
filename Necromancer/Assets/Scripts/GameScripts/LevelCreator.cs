@@ -75,10 +75,7 @@ public class LevelCreator : MonoBehaviour
     }
 
 
-    public void CreateMonster(GameObject spawnPoint)
-    {
-        spawnPoint = Instantiate(monster, transform);
-    }
+    
 
     public void Start()
     {
