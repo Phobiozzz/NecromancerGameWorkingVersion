@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Drop : MonoBehaviour
 {
-
+    
     public GameObject[] PagePeaces;
     public GameObject[] RunePeaces;
 

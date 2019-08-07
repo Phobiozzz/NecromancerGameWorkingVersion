@@ -39,7 +39,7 @@ public  class GameRuller : MonoBehaviour
 
     public void Update()
     {
-        if (hero.GetComponent<HeroStats>().Hp <= 0)
+        if (hero.GetComponent<HeroStats>().curHp <= 0)
         {
             ShowDeathMessage();
             Gui.SetActive(false);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6361194880532839482}
   - component: {fileID: 1125950062226834690}
   - component: {fileID: 2912933933194411701}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PoisonArrow_0
   m_TagString: Spell
   m_Icon: {fileID: 0}
@@ -153,3 +153,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  speed: 2.5
+  manaCost: 5

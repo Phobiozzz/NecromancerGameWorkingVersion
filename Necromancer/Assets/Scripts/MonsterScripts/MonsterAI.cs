@@ -11,23 +11,31 @@ public class MonsterAI : MonoBehaviour
     public float attackCD;
     public bool canAttack;
 
+    Vector3 monsterPosition;
+
     public Transform target;
     public Transform groundDetector;
     public LayerMask layermask;
+    public LayerMask monsterMask;
 
     float distance;
+    public bool stopFollowing;
 
     public bool Stop()
     {
-        print("Started To GroundChek");
+       // print("Started To GroundChek");
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetector.position, Vector2.down, 3.2f, layermask);
-        Debug.DrawRay(groundDetector.position, Vector2.down, Color.red, 3.2f);
-        if (groundInfo.collider == false)
+        RaycastHit2D monsterInfo = Physics2D.Raycast(groundDetector.position, Vector2.left, 0.001f, monsterMask);
+        //Debug.DrawRay(groundDetector.position, Vector2.left, Color.red, 0.01f);
+        if (groundInfo.collider == false || monsterInfo.collider == true)
         {
-            print("There is no ground !!!!!");
+            //print("There is no ground !!!!!");
             return true;
         }
-        print("There is a ground here!");
+        
+
+        
+        //print("There is a ground here!");
         return false;
     }
 
@@ -35,7 +43,7 @@ public class MonsterAI : MonoBehaviour
     {
         bool shouldIstop = false;
         shouldIstop = Stop();
-        if (shouldIstop != true)
+        if (shouldIstop != true )
         {
             if (distance < 2 && distance > 0.3)
             {
@@ -56,14 +64,21 @@ public class MonsterAI : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+       
+
         if (collision.gameObject.tag == "Minion")
         {
             target = collision.gameObject.GetComponent<Transform>();
             target.GetComponent<RiseSkeleton>().TakeDamage(damage);
 
         }
-       
+
+
+
     }
+
+   
+
     private void Attack()
     {
 
@@ -87,9 +102,11 @@ public class MonsterAI : MonoBehaviour
 
    
 
-    private void Start()
+    private void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        monsterPosition = transform.position;
+        stopFollowing = false;
         name = transform.name;
         damage = 3f;
         canAttack = true;

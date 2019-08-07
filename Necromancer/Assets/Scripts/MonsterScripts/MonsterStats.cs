@@ -21,7 +21,7 @@ public class MonsterStats : MonoBehaviour
         {
             isDead = true;
            
-            GameObject dropItem = drop[random.Next(0, drop.Length-1)];
+            GameObject dropItem = drop[random.Next(0, drop.Length)];
             Instantiate(dropItem, transform.position, dropItem.transform.rotation);
 
             Destroy(gameObject);

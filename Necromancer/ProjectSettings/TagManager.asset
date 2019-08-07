@@ -10,6 +10,7 @@ TagManager:
   - Text
   - Drop
   - DeathZone
+  - Minion
   layers:
   - Default
   - TransparentFX
@@ -20,10 +21,10 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
-  - 
-  - 
+  - Monster
+  - Minion
+  - Spell
+  - Player
   - 
   - 
   - 
