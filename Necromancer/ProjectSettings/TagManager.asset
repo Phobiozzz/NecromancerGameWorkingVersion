@@ -11,6 +11,7 @@ TagManager:
   - Drop
   - DeathZone
   - Minion
+  - BuffPos
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Minion
   - Spell
   - Player
-  - 
+  - heroUI
   - 
   - 
   - 

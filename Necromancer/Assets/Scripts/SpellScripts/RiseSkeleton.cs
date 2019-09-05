@@ -15,7 +15,7 @@ public class RiseSkeleton : MonoBehaviour
     public float lifeTime = 3f;
 
     public bool isAlive;
-
+    public bool Known;
 
 
     public Transform target;
@@ -43,6 +43,7 @@ public class RiseSkeleton : MonoBehaviour
     public void FindTargetAndFollow()
     {
         target = Target();
+
         distance = transform.position.x - target.position.x;
         if (distance < 0)
         {
@@ -78,7 +79,7 @@ public class RiseSkeleton : MonoBehaviour
         {
             target.GetComponent<MonsterStats>().TakeDamage(damage);
             attackCD = 1f;
-           // Debug.Log("Im attacked monster");
+           //Debug.Log("Im attacked monster");
         }
         attackCD -= 1 * Time.deltaTime;
         
@@ -105,6 +106,7 @@ public class RiseSkeleton : MonoBehaviour
     public Transform Target()
     {
         GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Monster");
+       
         Vector3 closestMonsterpPosition = allTargets[0].GetComponent<Transform>().position;
         int closestEnemyIndex = 0;
 

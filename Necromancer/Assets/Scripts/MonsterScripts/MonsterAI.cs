@@ -89,9 +89,13 @@ public class MonsterAI : MonoBehaviour
         }
         if (distance < 0.4f && canAttack == true)
         {
-            target.transform.GetComponent<HeroStats>().Hit(damage);
-            canAttack = false;
-            attackCD = attackSpeed;
+            if (target != null)
+            {
+                target.transform.GetComponent<HeroStats>().Hit(damage);
+                canAttack = false;
+                attackCD = attackSpeed;
+            }
+            
         }
         else
         {

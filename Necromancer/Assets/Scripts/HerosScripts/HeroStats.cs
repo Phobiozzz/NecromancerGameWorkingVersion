@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class HeroStats : MonoBehaviour
 {
     public GameObject hero;
@@ -17,6 +17,9 @@ public class HeroStats : MonoBehaviour
     public Slider healthBar;
     public Slider manaBar;
 
+    public Transform bonescounter;
+    public Transform skullscounter;
+
     private void Atack()
     {
 
@@ -24,9 +27,11 @@ public class HeroStats : MonoBehaviour
 
     public void Hit(float damage)
     {
+        transform.GetComponent<CharacterMovement>().animator.SetTrigger("Hit");
         curHp -= damage;
         healthBar.value = curHp;
-       
+        //transform.GetComponent<CharacterMovement>().animator.SetTrigger("Idle");
+
     }
 
     public void Heal(float healPower)
@@ -45,8 +50,9 @@ public class HeroStats : MonoBehaviour
     {
         if (curHp <= 0)
         {
+            transform.GetComponent<CharacterMovement>().animator.SetTrigger("Dead");
             isAlive = false;
-            Destroy(hero);
+            Destroy(hero, 1f);
         }
         
        
@@ -90,6 +96,45 @@ public class HeroStats : MonoBehaviour
         
     }
 
+    public void SetupCounters(string WichCounterSetuping, bool Adding, float howMuch )
+    {
+        switch (WichCounterSetuping)
+        {
+            case "pages":
+                if (Adding)
+                {
+                    pages += howMuch;
+                }
+                else if (Adding != true)
+                {
+                    pages -= howMuch;
+                }
+
+                break;
+            case "skulls":
+                if (Adding)
+                {
+                    skulls += howMuch;
+                }
+                else if (Adding != true)
+                {
+                    skulls -= howMuch;
+                }
+
+                break;
+            case "bones":
+                if (Adding)
+                {
+                    bones += howMuch;
+                }
+                else if (Adding != true)
+                {
+                    bones -= howMuch;
+                }
+
+                break;
+        }
+    }
 
     public void RestoreMana(float bonus)
     {
@@ -113,7 +158,7 @@ public class HeroStats : MonoBehaviour
         manaBar.value = curMp;
 
         canCast = true;
-        DontDestroyOnLoad(gameObject);
+        
        
     }
 
@@ -137,12 +182,21 @@ public class HeroStats : MonoBehaviour
         }
         manaBar.value = curMp;
     }
-    
+
+    public void AdjustCounters()
+    {
+        skullscounter.GetComponentInChildren<TextMeshProUGUI>().text = skulls.ToString();
+        bonescounter.GetComponentInChildren<TextMeshProUGUI>().text = bones.ToString();
+    }
+
     // Update is called once per frame
     void Update()
     {
         Death();
         AdjustMana();
         RestoreMana(1);
+        AdjustCounters();
+        healthBar.value = curHp;
+        manaBar.value = curMp;
     }
 }

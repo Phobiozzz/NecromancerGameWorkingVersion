@@ -9,6 +9,7 @@ public class PoisonArrow : MonoBehaviour
     public float speed = 2.5f;
     public float manaCost = 5f;
     public float CD = 0.2f;
+    public bool Known;
 
     public void Awake()
     {

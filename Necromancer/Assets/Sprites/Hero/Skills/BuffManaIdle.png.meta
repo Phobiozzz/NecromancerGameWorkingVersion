@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 5816285381ff54a848f420102248b224
+guid: 43267c7c2bc064d9596ed266bdf315a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -704084297040980237
-    second: SkeletonMinion_0
+      213: 3705822473909650037
+    second: BuffManaIdle_0
+  - first:
+      213: -9155757804823098161
+    second: BuffManaIdle_1
+  - first:
+      213: -7792406470277841447
+    second: BuffManaIdle_2
+  - first:
+      213: -291334997041203503
+    second: BuffManaIdle_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -109,22 +118,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkeletonMinion_0
+      name: BuffManaIdle_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 26
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 42
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b20e110d573e41d3b9f28f7efc8a08b
-      internalID: -704084297040980237
+      spriteID: 8d07ad9f9e2444b949eb52b9c5d04a3c
+      internalID: 3705822473909650037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuffManaIdle_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 42
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4260c4b209f98470799151290d4a71bf
+      internalID: -9155757804823098161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuffManaIdle_2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 42
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14babf6763574918b6e462e8e5861e3
+      internalID: -7792406470277841447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuffManaIdle_3
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 42
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b74dfa0fbf5471fa360d66509ce5f1
+      internalID: -291334997041203503
       vertices: []
       indices: 
       edges: []
@@ -132,7 +204,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 60981f4d5dc1d4c6a883a5aef4047c0a
+    spriteID: 16b06d855165649de99fa7a3cfc4c45f
     internalID: 0
     vertices: []
     indices: 

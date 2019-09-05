@@ -113,7 +113,7 @@ public class CreateLevel : MonoBehaviour
         isTheLastPlatform = false;
         CreatePlatform(3, new Vector3(0 * GameRuller.spriteSize, -2.5f * floor));
         
-        CreatingLevel(5);
+        CreatingLevel(20);
 
 
     }

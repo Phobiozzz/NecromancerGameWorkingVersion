@@ -7,9 +7,11 @@ public class CreateSpell : MonoBehaviour
 {
     public Transform spellstart;
     public GameObject[] SpellBook;
+    public GameObject spellbook;
     private GameObject spell;
     public float spellSpeed;
     private Vector3 spellStartPosition;
+    private Vector3 buffStartPosition;
     public GameObject player;
     public bool canCast;
     public bool isCasting;
@@ -33,6 +35,7 @@ public class CreateSpell : MonoBehaviour
     {
         
         spellStartPosition = spellstart.position;
+        buffStartPosition = GameObject.FindGameObjectWithTag("BuffPos").GetComponent<Transform>().position; 
         canCast = player.GetComponent<HeroStats>().canCast;
         if (canCast == true)
         {
@@ -40,11 +43,11 @@ public class CreateSpell : MonoBehaviour
             {
                 isCasting = true;
                 animator.SetTrigger("Casting");
-                
+
                 if (SpellBook[0].GetComponent<PoisonArrow>().manaCost <= player.GetComponent<HeroStats>().curMp)
                 {
                     spell = Instantiate(SpellBook[0], spellStartPosition, Quaternion.identity);
-                   
+
                 }
                 else
                 {
@@ -52,19 +55,22 @@ public class CreateSpell : MonoBehaviour
                     Debug.Log("Current Heros Mana " + player.GetComponent<HeroStats>().curMp);
                     Debug.Log("Not enougth mana to create spell");
                 }
-               
+
 
             }
             else if (CrossPlatformInputManager.GetButtonDown("Fire2") && canCast)
             {
                 spell = Instantiate(SpellBook[1], spellStartPosition, Quaternion.identity);
             }
+            else if (CrossPlatformInputManager.GetButtonDown("Buff") && canCast)
+            {
+                spell = Instantiate(SpellBook[2], buffStartPosition, Quaternion.identity);
+            }
             animator.SetTrigger("NotCasting");
 
         }
 
-      
+
         
-       
     }
 }
